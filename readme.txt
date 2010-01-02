@@ -13,7 +13,7 @@ Easily find your medias on the solution of digital asset management ePhoto and i
 
 Related Links:
 
-* <a href="http://www.ephoto.fr/" title="Official website of the solution of digital asset management ePhoto">Official website of ePhoto"</a>
+* <a href="http://www.ephoto.fr/" title="Official website of the solution of digital asset management ePhoto">Official website of ePhoto</a>
 * <a href="http://blog.ephoto.fr/" title="Blog of the solution of digital asset management ePhoto">Official blog of ePhoto</a>
 
 == Installation ==
