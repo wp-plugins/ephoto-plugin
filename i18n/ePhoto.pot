@@ -1,0 +1,35 @@
+msgid "@Enregistrer les changements"
+msgstr ""
+
+msgid "@Adresse du serveur"
+msgstr ""
+
+msgid "@Changement sauvegarde"
+msgstr ""
+
+msgid "@Options du module ePhoto"
+msgstr ""
+
+msgid "@ex : 200x200, 200x, x200, vide=taille original"
+msgstr ""
+
+msgid "@Importer : 1er bouton"
+msgstr ""
+
+msgid "@Importer : 2eme bouton"
+msgstr ""
+
+msgid "@Importer : 3eme bouton"
+msgstr ""
+
+msgid "@Configuration par defaut restauree"
+msgstr ""
+
+msgid "@Restaure la configuration par defaut"
+msgstr ""
+
+msgid "@Titre"
+msgstr ""
+
+msgid "@Taille"
+msgstr ""
