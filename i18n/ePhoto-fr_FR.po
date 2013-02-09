@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ePhoto plugin for Wordpress\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Bour Arnaud <abour@einden.fr>\n"
+"Last-Translator: ePhoto Team <support@ephoto.fr>\n"
 "Language-Team: Team ephoto <contact@ephoto.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -24,17 +24,8 @@ msgstr "Changement sauvegardé"
 msgid "@Options du module ePhoto"
 msgstr "Options du module ePhoto"
 
-msgid "@ex : 200x200, 200x, x200, vide=taille original"
-msgstr "ex : 200x200, 200x, x200, vide=taille original"
-
-msgid "@Importer : 1er bouton"
-msgstr "Importer : 1er bouton"
-
-msgid "@Importer : 2eme bouton"
-msgstr "Importer : 2ème bouton"
-
-msgid "@Importer : 3eme bouton"
-msgstr "Importer : 3ème bouton"
+msgid "@ex : 200, x200, vide=taille originale"
+msgstr "ex : 200, x200, vide=taille originale"
 
 msgid "@Configuration par defaut restauree"
 msgstr "Configuration par défaut restaurée"
@@ -42,9 +33,47 @@ msgstr "Configuration par défaut restaurée"
 msgid "@Restaure la configuration par defaut"
 msgstr "Restaure la configuration par défaut"
 
-msgid "@Titre"
-msgstr "Titre"
+msgid "@Taille daffichage des images moyennes"
+msgstr "Taille d'affichage des images moyennes"
 
-msgid "@Taille"
-msgstr "Taille"
+msgid "@Taille daffichage des grandes images"
+msgstr "Taille d'affichage des grandes images"
 
+msgid "@Taille daffichage"
+msgstr "Taille d'affichage"
+
+msgid "@Images"
+msgstr "Images"
+
+msgid "@Videos"
+msgstr "Vidéos"
+
+msgid "@Image moyenne"
+msgstr "Image moyenne"
+
+msgid "@Grande image"
+msgstr "Grande image"
+
+msgid "@Fichiers Adobe Flash"
+msgstr "Fichiers Adobe Flash"
+
+msgid "@Documents bureautique"
+msgstr "Documents bureautique"
+
+#~ msgid "@Taille"
+#~ msgstr "Taille"
+
+#~ msgid "@Importer des images"
+#~ msgstr "Importer des images"
+
+#~ msgid "@Importer des videos"
+#~ msgstr "Importer des vidéos"
+
+#~ msgid "@Importer des fichiers Adobe Flash"
+#~ msgstr "Importer des fichiers Adobe Flash"
+
+#~ msgid "@Importer : 3eme bouton"
+#~ msgstr "Importer : 3ème bouton"
+
+#~ msgid "@Titre"
+#~ msgstr "Titre"

@@ -3,11 +3,11 @@
 Plugin Name: ePhoto
 Plugin URI: http://www.ephoto.fr/
 Description: Add ePhoto connector in the TinyMCE Rich Visual Editor
-Version: 1.0.0
+Version: 2.0.0
 Author: Einden Studio
 Author URI: http://www.einden.com/
 
-Copyright (C)2010 Einden Studio
+Copyright (C)2013 Einden Studio
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,13 +27,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // Détermine l'emplacement du plugin
 $ePhotoPluginPath = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/';
 
-$ePhotoDefaultValues = array('http://demo.ephoto.fr/',
-							 'Miniature',
-							 'Moyenne',
-							 'Large',
-							 'x150',
-							 'x300',
-							 'x600');
+$ePhotoDefaultValues = array('http://masociete.ephoto.fr/',
+							 '320',
+							 '640',
+							 '640',
+							 '640',
+							 '320');
 
 // Initialise la langue
 function ePhoto_init_locale()
@@ -80,26 +79,12 @@ function register_ePhoto_button($buttons)
 // Ajoute la config ePhoto à TinyMCE
 function register_ePhoto_config($init)
 {	
-  $uploadDir=wp_upload_dir();
-
-  if(empty($uploadDir['error']))  // Vérifie l'état du dossier des Uploads
-  {
-     $init['ePhoto']="urlServer:'".get_option('ePhoto_urlServer')."',".
-	                 "serverScript:'download.php',".
-					 "uploadDir:'".$uploadDir['url']."',".
-	                 "buttons:[{'mode':2,".  // Bouton 1
-							  "'title':'".get_option('ePhoto_bouton1_titre')."',".
-							   "'size':'".get_option('ePhoto_bouton1_taille')."',".
-							 "'format':'jpg','dpi':72,'notEnlarge':true},".
-							  "{'mode':2,".  // Bouton 2
-							  "'title':'".get_option('ePhoto_bouton2_titre')."',".
-							   "'size':'".get_option('ePhoto_bouton2_taille')."',".
-							 "'format':'jpg','dpi':72,'notEnlarge':true},".
-                              "{'mode':2,".  // Bouton 3
-							  "'title':'".get_option('ePhoto_bouton3_titre')."',".
-							   "'size':'".get_option('ePhoto_bouton3_taille')."',".
-							 "'format':'jpg','dpi':72,'notEnlarge':true}]";						 
-  }
+  $init['ePhoto']="{'server':'".get_option('ePhoto_urlServer')."',".
+				  "'buttons':{'image':[{'definition':'low','title':'".__("@Image moyenne", 'ePhoto')."','size':'".get_option('ePhoto_bouton1_taille')."'},".
+									"{'definition':'middle','title':'".__("@Grande image", 'ePhoto')."','size':'".get_option('ePhoto_bouton2_taille')."'}],".
+						   "'movie':[{'definition':'middle','size':'".get_option('ePhoto_bouton3_taille')."'}],".
+						   "'flash':[{'definition':'original','size':'".get_option('ePhoto_bouton4_taille')."'}],".
+						  "'office':[{'definition':'middle','size':'".get_option('ePhoto_bouton5_taille')."'}]}}";					 
 
   return $init;
 }
@@ -121,13 +106,12 @@ function ePhoto_load_config($force=false)
 {
   global $ePhotoDefaultValues;
   
-  if ($force || !get_option('ePhoto_urlServer')) update_option('ePhoto_urlServer', $ePhotoDefaultValues[0]);
-  if ($force || !get_option('ePhoto_bouton1_titre')) update_option('ePhoto_bouton1_titre', $ePhotoDefaultValues[1]);
-  if ($force || !get_option('ePhoto_bouton2_titre')) update_option('ePhoto_bouton2_titre', $ePhotoDefaultValues[2]);
-  if ($force || !get_option('ePhoto_bouton3_titre')) update_option('ePhoto_bouton3_titre', $ePhotoDefaultValues[3]);  
-  if ($force || !get_option('ePhoto_bouton1_taille')) update_option('ePhoto_bouton1_taille', $ePhotoDefaultValues[4]);
-  if ($force || !get_option('ePhoto_bouton2_taille')) update_option('ePhoto_bouton2_taille', $ePhotoDefaultValues[5]);
-  if ($force || !get_option('ePhoto_bouton3_taille')) update_option('ePhoto_bouton3_taille', $ePhotoDefaultValues[6]);  
+  if ($force || !get_option('ePhoto_urlServer'))      update_option('ePhoto_urlServer',      $ePhotoDefaultValues[0]);
+  if ($force || !get_option('ePhoto_bouton1_taille')) update_option('ePhoto_bouton1_taille', $ePhotoDefaultValues[1]);  
+  if ($force || !get_option('ePhoto_bouton2_taille')) update_option('ePhoto_bouton2_taille', $ePhotoDefaultValues[2]);
+  if ($force || !get_option('ePhoto_bouton3_taille')) update_option('ePhoto_bouton3_taille', $ePhotoDefaultValues[3]);
+  if ($force || !get_option('ePhoto_bouton4_taille')) update_option('ePhoto_bouton4_taille', $ePhotoDefaultValues[4]);
+  if ($force || !get_option('ePhoto_bouton5_taille')) update_option('ePhoto_bouton5_taille', $ePhotoDefaultValues[5]);    
 }
 
 // Menu d'options
@@ -146,20 +130,18 @@ function ePhoto_options()
 	 check_admin_referer('ePhoto-config');
 	 
 	 $urlServer=empty($_POST['urlServer'])?$ePhotoDefaultValues[0]:$_POST['urlServer'];
-	 $bouton1_titre=empty($_POST['bouton1_titre'])?$ePhotoDefaultValues[1]:$_POST['bouton1_titre'];
-	 $bouton2_titre=empty($_POST['bouton2_titre'])?$ePhotoDefaultValues[2]:$_POST['bouton2_titre'];
-	 $bouton3_titre=empty($_POST['bouton3_titre'])?$ePhotoDefaultValues[3]:$_POST['bouton3_titre'];	 	 
-	 $bouton1_taille=empty($_POST['bouton1_taille'])?$ePhotoDefaultValues[4]:$_POST['bouton1_taille'];
-	 $bouton2_taille=empty($_POST['bouton2_taille'])?$ePhotoDefaultValues[5]:$_POST['bouton2_taille'];
-	 $bouton3_taille=empty($_POST['bouton3_taille'])?$ePhotoDefaultValues[6]:$_POST['bouton3_taille'];	 
+	 $bouton1_taille=empty($_POST['bouton1_taille'])?$ePhotoDefaultValues[1]:$_POST['bouton1_taille'];	 	 
+	 $bouton2_taille=empty($_POST['bouton2_taille'])?$ePhotoDefaultValues[2]:$_POST['bouton2_taille'];
+	 $bouton3_taille=empty($_POST['bouton3_taille'])?$ePhotoDefaultValues[3]:$_POST['bouton3_taille'];
+	 $bouton4_taille=empty($_POST['bouton4_taille'])?$ePhotoDefaultValues[4]:$_POST['bouton4_taille'];
+	 $bouton5_taille=empty($_POST['bouton5_taille'])?$ePhotoDefaultValues[5]:$_POST['bouton5_taille'];	 	 
 
 	 update_option('ePhoto_urlServer', $urlServer);
-	 update_option('ePhoto_bouton1_titre', $bouton1_titre);
-	 update_option('ePhoto_bouton2_titre', $bouton2_titre);
-	 update_option('ePhoto_bouton3_titre', $bouton3_titre);		 
-	 update_option('ePhoto_bouton1_taille', $bouton1_taille);
+	 update_option('ePhoto_bouton1_taille', $bouton1_taille);		 
 	 update_option('ePhoto_bouton2_taille', $bouton2_taille);
-	 update_option('ePhoto_bouton3_taille', $bouton3_taille);	 
+	 update_option('ePhoto_bouton3_taille', $bouton3_taille);
+	 update_option('ePhoto_bouton4_taille', $bouton4_taille);
+	 update_option('ePhoto_bouton5_taille', $bouton5_taille);	 	 
 	 
 	 ePhoto_message(__('@Changement sauvegarde', 'ePhoto').'.');
   }
@@ -175,17 +157,18 @@ function ePhoto_options()
 		<th scope="row" valign="top"><?php _e("@Adresse du serveur", 'ePhoto'); ?></th>
 		<td><input size="80" type="text" name="urlServer" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_urlServer'))); ?>" /></td>
     </tr><tr>
-		<th scope="row" valign="top"><?php _e("@Importer : 1er bouton", 'ePhoto'); ?></th>
-		<td><?php _e('@Titre', 'ePhoto'); ?> : <input size="20" type="text" name="bouton1_titre" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton1_titre'))); ?>" />
-            <?php _e('@Taille', 'ePhoto'); ?> : <input size="20" type="text" name="bouton1_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton1_taille'))); ?>" /> <i><?php _e('@ex : 200x200, 200x, x200, vide=taille original', 'ePhoto') ?></i></td>
+		<th scope="row" valign="top"><?php _e("@Images", 'ePhoto'); ?></th>
+		<td><?php _e('@Taille daffichage des images moyennes', 'ePhoto'); ?> : <input size="20" type="text" name="bouton1_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton1_taille'))); ?>" /> <i><?php _e('@ex : 200, x200, vide=taille originale', 'ePhoto') ?></i><br>
+            <?php _e('@Taille daffichage des grandes images', 'ePhoto'); ?> : <input size="20" type="text" name="bouton2_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton2_taille'))); ?>" /></td>
     </tr><tr>
-		<th scope="row" valign="top"><?php _e("@Importer : 2eme bouton", 'ePhoto'); ?></th>
-		<td><?php _e('@Titre', 'ePhoto'); ?> : <input size="20" type="text" name="bouton2_titre" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton2_titre'))); ?>" />
-            <?php _e('@Taille', 'ePhoto'); ?> : <input size="20" type="text" name="bouton2_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton2_taille'))); ?>" /></td>
+		<th scope="row" valign="top"><?php _e("@Videos", 'ePhoto'); ?></th>
+		<td><?php _e('@Taille daffichage', 'ePhoto'); ?> : <input size="20" type="text" name="bouton3_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton3_taille'))); ?>" /></td>
     </tr><tr>
-		<th scope="row" valign="top"><?php _e("@Importer : 3eme bouton", 'ePhoto'); ?></th>
-		<td><?php _e('@Titre', 'ePhoto'); ?> : <input size="20" type="text" name="bouton3_titre" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton3_titre'))); ?>" />
-            <?php _e('@Taille', 'ePhoto'); ?> : <input size="20" type="text" name="bouton3_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton3_taille'))); ?>" /></td>
+		<th scope="row" valign="top"><?php _e("@Fichiers Adobe Flash", 'ePhoto'); ?></th>
+		<td><?php _e('@Taille daffichage', 'ePhoto'); ?> : <input size="20" type="text" name="bouton4_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton4_taille'))); ?>" /></td>
+    </tr><tr>    
+		<th scope="row" valign="top"><?php _e("@Documents bureautique", 'ePhoto'); ?></th>
+		<td><?php _e('@Taille daffichage', 'ePhoto'); ?> : <input size="20" type="text" name="bouton5_taille" value="<?php echo attribute_escape(stripslashes(get_option('ePhoto_bouton5_taille'))); ?>" /></td>
     </tr><tr>                    
 		<td>&nbsp;</td>
 		<td>

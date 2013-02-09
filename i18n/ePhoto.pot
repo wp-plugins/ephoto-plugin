@@ -10,16 +10,7 @@ msgstr ""
 msgid "@Options du module ePhoto"
 msgstr ""
 
-msgid "@ex : 200x200, 200x, x200, vide=taille original"
-msgstr ""
-
-msgid "@Importer : 1er bouton"
-msgstr ""
-
-msgid "@Importer : 2eme bouton"
-msgstr ""
-
-msgid "@Importer : 3eme bouton"
+msgid "@ex : 200, x200, vide=taille originale"
 msgstr ""
 
 msgid "@Configuration par defaut restauree"
@@ -28,8 +19,29 @@ msgstr ""
 msgid "@Restaure la configuration par defaut"
 msgstr ""
 
-msgid "@Titre"
+msgid "@Taille daffichage des images moyennes"
 msgstr ""
 
-msgid "@Taille"
+msgid "@Taille daffichage des grandes images"
+msgstr ""
+
+msgid "@Taille daffichage"
+msgstr ""
+
+msgid "@Images"
+msgstr ""
+
+msgid "@Videos"
+msgstr ""
+
+msgid "@Image moyenne"
+msgstr ""
+
+msgid "@Grande image"
+msgstr ""
+
+msgid "@Fichiers Adobe Flash"
+msgstr ""
+
+msgid "@Documents bureautique"
 msgstr ""
