@@ -3,9 +3,9 @@ Contributors: Einden Studio
 Tags: ePhoto, digital asset management, media
 Requires at least: 2.2
 Tested up to: 3.5
-Stable tag: 2.0.0
+Stable tag: 2.0.2
 
-Easily find your media (photos, videos, sounds) on the solution of digital asset management ePhoto and import directly into WordPress.
+Easily find your media (photos, videos, sounds, Adobe Flash,...) on the solution of digital asset management ePhoto and import directly into WordPress.
 
 == Description ==
 
@@ -25,11 +25,14 @@ Related Links:
 
 == Changelog ==
 
+= 2.0.2 =
+* Bugs fix
+
 = 2.0.0 =
-* Third release
+* Second release
 
 = 1.0.1 =
-* Second release
+* Bugs fix
 
 = 1.0 =
 * First release

@@ -1,5 +1,5 @@
 /**
- * $Id: editor_plugin.js 2013-02-06 $
+ * $Id: editor_plugin.js 2013-02-09 $
  *
  * @author Einden Studio
  * @copyright Copyright © 2013, Einden Studio, All rights reserved.
@@ -112,7 +112,7 @@
 				author : 'Einden Studio',
 				authorurl : 'http://www.ephoto.fr/',
 				infourl : 'http://sourceforge.net/users/einden',
-				version : '2.0.1'
+				version : '2.0.2'
 			};
 		}
 	}); 
@@ -133,7 +133,7 @@
 		param: null,
 		
 		// API Connector
-		connect: null,
+		instance: null,
 		
 		// Initialize the Plugin / API ePhoto ////////////////
 		execute : function() {
@@ -165,27 +165,27 @@
 		
 		// Execute API ePhoto ///////////////////////////////
 		init : function() {
-		   this.connect = new ephoto({ server: this.param.server,
-									   mode: 'embed',
+		   this.instance = new ephoto({ server: this.param.server,
 									   authID: this.getCookie('tinymce_ephoto_authid'),
-									   onComplete: 'tinymce.ePhoto.insert',
 									   onConnect: 'tinymce.ePhoto.connected' });
 
-		   if(this.param.buttons.image)  { this.connect.importImage(this.param.buttons.image); }
-		   if(this.param.buttons.movie)  { this.connect.importMovie(this.param.buttons.movie); }
-		   if(this.param.buttons.flash)  { this.connect.importFlash(this.param.buttons.flash); }
-		   if(this.param.buttons.office) { this.connect.importOffice(this.param.buttons.office); }	
+		   this.instance.connect();
+		   
+		   if(this.param.buttons.image)  { this.instance.setOption( 'import.bmp', this.param.buttons.image); }
+		   if(this.param.buttons.movie)  { this.instance.setOption( 'import.mov', this.param.buttons.movie); }
+		   if(this.param.buttons.flash)  { this.instance.setOption( 'import.swf', this.param.buttons.flash); }
+		   if(this.param.buttons.office) { this.instance.setOption( 'import.doc', this.param.buttons.office); }
 
-           this.connect.execute(); 	
+           this.instance.import( {'mode':'embed', 'onImport':'tinymce.ePhoto.insertFile'} ); 	
 		},
 		
 		// Save authID //////////////////////////////////////////////
 		connected: function() {
-		   this.setCookie( 'tinymce_ephoto_authid', this.connect.getAuthID() );
+		   this.setCookie( 'tinymce_ephoto_authid', this.instance.getAuthID() );
 		},
 		
 		// Insert file /////////////////////////////////////////////
-		insert : function(result) {
+		insertFile : function(result) {
            if(result==='failure') { return; }
 		   if(result==='fileDoesNotExist') { alert(this.ed.getLang('ePhoto.noselected')); return; }
 
