@@ -139,12 +139,12 @@
 		execute : function() {
            if(!document.getElementsByTagName || !document.createElement) { alert(this.ed.getLang('ePhoto.error')+' (code 1).'); return; }
 
-           if(typeof ephoto=='function') this.init();
+           if(typeof ePhoto=='function') this.init();
            else {
               var ApiEphoto = document.createElement('script');
               ApiEphoto.setAttribute('type', 'text/javascript');
       
-	          this.onload('ephoto', this.init.tinymce_ePhotoBind(this));
+	          this.onload('ePhoto', this.init.tinymce_ePhotoBind(this));
 
               ApiEphoto.setAttribute('src', this.param.server+'api/apiJS.js');  
     
@@ -165,18 +165,18 @@
 		
 		// Execute API ePhoto ///////////////////////////////
 		init : function() {
-		   this.instance = new ephoto({ server: this.param.server,
-									   authID: this.getCookie('tinymce_ephoto_authid'),
-									   onConnect: 'tinymce.ePhoto.connected' });
+		   this.instance = new ePhoto({ server: this.param.server,
+									    authID: this.getCookie('tinymce_ephoto_authid'),
+									    onConnect: 'tinymce.ePhoto.connected' });
 
 		   this.instance.connect();
 		   
-		   if(this.param.buttons.image)  { this.instance.setOption( 'import.bmp', this.param.buttons.image); }
-		   if(this.param.buttons.movie)  { this.instance.setOption( 'import.mov', this.param.buttons.movie); }
-		   if(this.param.buttons.flash)  { this.instance.setOption( 'import.swf', this.param.buttons.flash); }
-		   if(this.param.buttons.office) { this.instance.setOption( 'import.doc', this.param.buttons.office); }
-
-           this.instance.import( {'mode':'embed', 'onImport':'tinymce.ePhoto.insertFile'} ); 	
+		   if(this.param.buttons.image)  { this.instance.File.setButtons( this.instance.IMAGE_FILES, this.param.buttons.image ); }
+		   if(this.param.buttons.movie)  { this.instance.File.setButtons( this.instance.MOVIE_FILES, this.param.buttons.movie ); }
+		   if(this.param.buttons.flash)  { this.instance.File.setButtons( this.instance.FLASH_FILES, this.param.buttons.flash ); }
+		   if(this.param.buttons.office) { this.instance.File.setButtons( this.instance.DOCUMENT_FILES, this.param.buttons.office ); } 		   
+		   
+		   this.instance.File.get( {mode:'embed', onFileReceived:'tinymce.ePhoto.insertFile'} );
 		},
 		
 		// Save authID //////////////////////////////////////////////
