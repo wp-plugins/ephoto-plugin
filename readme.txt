@@ -3,7 +3,7 @@ Contributors: Einden Studio
 Tags: ePhoto, digital asset management, media
 Requires at least: 2.2
 Tested up to: 3.5
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 
 Easily find your media (photos, videos, sounds, Adobe Flash,...) on the solution of digital asset management ePhoto and import directly into WordPress.
 
@@ -24,6 +24,9 @@ Related Links:
 6. The ePhoto button is present in the richtext editor when you edit your pages and posts :)
 
 == Changelog ==
+
+= 2.0.4 =
+* Support ePhoto 3.4.1
 
 = 2.0.3 =
 * Minor bug fix

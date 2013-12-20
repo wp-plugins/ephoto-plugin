@@ -3,7 +3,7 @@
 Plugin Name: ePhoto
 Plugin URI: http://www.ephoto.fr/
 Description: Add ePhoto connector in the TinyMCE Rich Visual Editor
-Version: 2.0.3
+Version: 2.0.4
 Author: Einden Studio
 Author URI: http://www.einden.com/
 
@@ -79,12 +79,12 @@ function register_ePhoto_button($buttons)
 // Ajoute la config ePhoto à TinyMCE
 function register_ePhoto_config($init)
 {	
-  $init['ePhoto']="{'server':'".get_option('ePhoto_urlServer')."',".
-				  "'buttons':{'image':[{'definition':'low','title':'".__("@Image moyenne", 'ePhoto')."','size':'".get_option('ePhoto_bouton1_taille')."'},".
-									  "{'definition':'middle','title':'".__("@Grande image", 'ePhoto')."','size':'".get_option('ePhoto_bouton2_taille')."'}],".
-						     "'movie':[{'definition':'middle','size':'".get_option('ePhoto_bouton3_taille')."'}],".
-						     "'flash':[{'definition':'original','size':'".get_option('ePhoto_bouton4_taille')."'}],".
-						    "'office':[{'definition':'middle','size':'".get_option('ePhoto_bouton5_taille')."'}]}}";					 
+  $init['ePhoto']="{server:'".get_option('ePhoto_urlServer')."',".
+				  "buttons:{'image':[{title:'".__("@Image moyenne", 'ePhoto')."',size:'".get_option('ePhoto_bouton1_taille')."'},".
+									"{title:'".__("@Grande image", 'ePhoto')."',size:'".get_option('ePhoto_bouton2_taille')."'}],".
+						   "'movie':[{size:'".get_option('ePhoto_bouton3_taille')."'}],".
+						   "'flash':[{size:'".get_option('ePhoto_bouton4_taille')."'}],".
+						  "'office':[{size:'".get_option('ePhoto_bouton5_taille')."'}]}}";				 
 
   return $init;
 }
