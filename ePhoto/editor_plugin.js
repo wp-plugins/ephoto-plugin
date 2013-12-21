@@ -1,5 +1,5 @@
 /**
- * $Id: editor_plugin.js 2013-02-09 $
+ * $Id: editor_plugin.js 2013-12-21 $
  *
  * @author Einden Studio
  * @copyright Copyright © 2013, Einden Studio, All rights reserved.
@@ -112,7 +112,7 @@
 				author : 'Einden Studio',
 				authorurl : 'http://www.ephoto.fr/',
 				infourl : 'http://sourceforge.net/users/einden',
-				version : '2.0.2'
+				version : '2.0.4'
 			};
 		}
 	}); 
@@ -167,7 +167,8 @@
 		init : function() {
 		   this.instance = new ePhoto({ server: this.param.server,
 									    authID: this.getCookie('tinymce_ephoto_authid'),
-									    onConnect: 'tinymce.ePhoto.connected' });
+									    onConnect: 'tinymce.ePhoto.connected',
+										client: this.param.client });
 
 		   this.instance.connect();
 		   
