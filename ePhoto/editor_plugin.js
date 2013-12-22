@@ -168,7 +168,7 @@
 		   this.instance = new ePhoto({ server: this.param.server,
 									    authID: this.getCookie('tinymce_ephoto_authid'),
 									    onConnect: 'tinymce.ePhoto.connected',
-										client: this.param.client });
+										client: this.param.client?this.param.client:'0SpHxTT2' });
 
 		   this.instance.connect();
 		   

@@ -26,7 +26,7 @@ Related Links:
 == Changelog ==
 
 = 2.0.4 =
-* Support ePhoto 3.4.1
+* Support ePhoto 3.5.0
 
 = 2.0.3 =
 * Minor bug fix

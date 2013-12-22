@@ -80,7 +80,7 @@ function register_ePhoto_button($buttons)
 function register_ePhoto_config($init)
 {	
   $init['ePhoto']="{server:'".get_option('ePhoto_urlServer')."',".
-                   "client:'WordPress',".
+                   "client:'jHYIcCqe',".
 				  "buttons:{'image':[{title:'".__("@Image moyenne", 'ePhoto')."',size:'".get_option('ePhoto_bouton1_taille')."'},".
 									"{title:'".__("@Grande image", 'ePhoto')."',size:'".get_option('ePhoto_bouton2_taille')."'}],".
 						   "'movie':[{size:'".get_option('ePhoto_bouton3_taille')."'}],".
