@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ePhoto plugin for Wordpress\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: ePhoto Team <support@ephoto.fr>\n"
+"Language-Team: Team ephoto <contact@ephoto.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "@Enregistrer les changements"
+msgstr ""
+
+msgid "@Adresse du serveur"
+msgstr ""
+
+msgid "@Changement sauvegarde"
+msgstr ""
+
+msgid "@Options du module ePhoto"
+msgstr ""
+
+msgid "@ex : 200, x200, vide=taille originale"
+msgstr ""
+
+msgid "@Configuration par defaut restauree"
+msgstr ""
+
+msgid "@Restaure la configuration par defaut"
+msgstr ""
+
+msgid "@Taille daffichage des images moyennes"
+msgstr ""
+
+msgid "@Taille daffichage des grandes images"
+msgstr ""
+
+msgid "@Taille daffichage"
+msgstr ""
+
+msgid "@Images"
+msgstr ""
+
+msgid "@Videos"
+msgstr ""
+
+msgid "@Image moyenne"
+msgstr ""
+
+msgid "@Grande image"
+msgstr ""
+
+msgid "@Fichiers Adobe Flash"
+msgstr ""
+
+msgid "@Documents bureautique"
+msgstr ""
+
+#~ msgid "@Taille"
+#~ msgstr "Taille"
+
+#~ msgid "@Importer des images"
+#~ msgstr "Importer des images"
+
+#~ msgid "@Importer des videos"
+#~ msgstr "Importer des vidéos"
+
+#~ msgid "@Importer des fichiers Adobe Flash"
+#~ msgstr "Importer des fichiers Adobe Flash"
+
+#~ msgid "@Importer : 3eme bouton"
+#~ msgstr "Importer : 3ème bouton"
+
+#~ msgid "@Titre"
+#~ msgstr "Titre"

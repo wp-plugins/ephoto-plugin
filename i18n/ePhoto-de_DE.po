@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ePhoto plugin for Wordpress\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Arnaud Bour <abour@einden.com>\n"
+"Language-Team: Team ephoto <contact@ephoto.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Language: fr_FR\n"
+"X-Generator: Poedit 1.5.5\n"
+
+msgid "@Enregistrer les changements"
+msgstr "Die Änderungen speichern"
+
+msgid "@Adresse du serveur"
+msgstr "Serveradresse"
+
+msgid "@Changement sauvegarde"
+msgstr "Änderung gespeichert"
+
+msgid "@Options du module ePhoto"
+msgstr "Optionen der ePhoto Plug-ins"
+
+msgid "@ex : 200, x200, vide=taille originale"
+msgstr "Beispiel : 200, x200, vakuum =ursprüngliche Dimension"
+
+msgid "@Configuration par defaut restauree"
+msgstr "Konfiguration auf Werkseinstellung zurückgesetzt"
+
+msgid "@Restaure la configuration par defaut"
+msgstr "Die Konfiguration auf Werkseinstellung zurücksetzen"
+
+msgid "@Taille daffichage des images moyennes"
+msgstr "Anzeigegröße der mittelgroßen Bilder"
+
+msgid "@Taille daffichage des grandes images"
+msgstr "Anzeigegröße der großen Bilder"
+
+msgid "@Taille daffichage"
+msgstr "Anzeigegröße"
+
+msgid "@Images"
+msgstr "Bilder"
+
+msgid "@Videos"
+msgstr "Videos"
+
+msgid "@Image moyenne"
+msgstr "Mittelgroßes Bild"
+
+msgid "@Grande image"
+msgstr "Großes Bild"
+
+msgid "@Fichiers Adobe Flash"
+msgstr "Adobe Flash Dateien"
+
+msgid "@Documents bureautique"
+msgstr "Dokumente für die Büroautomation"
+
+#~ msgid "@Taille"
+#~ msgstr "Taille"
+
+#~ msgid "@Importer des images"
+#~ msgstr "Importer des images"
+
+#~ msgid "@Importer des videos"
+#~ msgstr "Importer des vidéos"
+
+#~ msgid "@Importer des fichiers Adobe Flash"
+#~ msgstr "Importer des fichiers Adobe Flash"
+
+#~ msgid "@Importer : 3eme bouton"
+#~ msgstr "Importer : 3ème bouton"
+
+#~ msgid "@Titre"
+#~ msgstr "Titre"
